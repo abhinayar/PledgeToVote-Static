@@ -9,7 +9,7 @@
   margin: 0 auto;
 }
 
-@media (min-width:600px) {
+@media (min-width: 600px) {
   .header.jsx-1374449561 {
     padding: 30px 30px 0;
   }
@@ -19,7 +19,7 @@
   font-size: 42px;
   font-weight: 700;
   color: #333;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
 #siteName.jsx-1374449561 h1.jsx-1374449561 a.jsx-1374449561 {
@@ -32,7 +32,7 @@
   letter-spacing: inherit !important;
 }
 
-@media (min-width:600px) {
+@media (min-width: 600px) {
   #siteName.jsx-1374449561 h1.jsx-1374449561 {
     font-size: 60px;
   }
@@ -45,6 +45,10 @@
 
 .siteSubtitle {
   margin-top: 15px;
+}
+.siteSubtitle-top {
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 #siteNav.jsx-1374449561 {
@@ -72,7 +76,7 @@
   overflow-x: hidden;
 }
 
-@media (min-width:600px) {
+@media (min-width: 600px) {
   .body.jsx-1374449561 {
     padding: 0 30px 90px;
   }
@@ -82,11 +86,11 @@
   font-size: 32px;
   font-weight: 700;
   color: #333;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   display: inline-block;
 }
 
-@media (min-width:600px) {
+@media (min-width: 600px) {
   .titleText.jsx-1374449561 h1.jsx-1374449561 {
     font-size: 42px;
   }
@@ -143,7 +147,7 @@
   margin-bottom: 15px;
   border-radius: 6px;
   color: #fff;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   box-shadow: 0 2px 9px 2px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   -webkit-transform: scale(0.95);
@@ -154,7 +158,7 @@
   transition: box-shadow 0.12s ease, transform 0.12s ease;
 }
 
-@media (min-width:600px) {
+@media (min-width: 600px) {
   .topicListItem.jsx-1374449561 {
     height: 100px;
   }
@@ -177,35 +181,35 @@
 }
 
 .topicListItem.ofAge.jsx-1374449561 {
-  background-color: #454E9E;
+  background-color: #092c57;
 }
 
 .topicListItem.notOfAge.jsx-1374449561 {
-  background-color: #febd00;
+  background-color: #00a9e2;
 }
 
 .topicListItem.isReg {
-  background-color: red;
+  background-color: #092c57;
 }
 
 .topicListItem.maybeReg {
-  background-color: blue;
+  background-color: #00a9e2;
 }
 
 .topicListItem.notReg {
-  background-color: #111;
+  background-color: #555;
 }
 
-.topicListItem.factoid.jsx-1374449561 {
-  background-color: #3E92CC;
+.topicListItem.facebook {
+  background-color: #3b5998;
 }
 
-.topicListItem.summary.jsx-1374449561 {
-  background-color: #2B4162;
+.topicListItem.twitter {
+  background-color: #08a0e9;
 }
 
-.topicListItem.inDepth.jsx-1374449561 {
-  background-color: #0D0630;
+.topicListItem.email.jsx-1374449561 {
+  background-color: #c20004;
 }
 
 .topicListItemWrap.jsx-1374449561 {
@@ -241,14 +245,14 @@
   bottom: auto;
 }
 
-@media (min-width:600px) {
+@media (min-width: 600px) {
   .checkBox.jsx-1374449561 {
     left: 24px;
   }
 }
 
 .topicListItem.active.jsx-1374449561 .checkBox.jsx-1374449561:after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   width: 20px;
@@ -265,7 +269,7 @@
   font-size: 18px;
 }
 
-@media (min-width:600px) {
+@media (min-width: 600px) {
   .topicTitle.jsx-1374449561 h6.jsx-1374449561 {
     font-size: 24px;
   }
@@ -299,7 +303,7 @@
 
 .continueBtn.jsx-1374449561 button.jsx-1374449561 {
   cursor: pointer;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 700;
   font-size: 14px;
   color: #fff;
@@ -318,14 +322,14 @@
 }
 
 .continueBtn.jsx-1374449561 button.active.jsx-1374449561 {
-  background-color: #333;
+  background-color: #ea2a2e;
   box-shadow: 0 2px 9px 2px rgba(0, 0, 0, 0.1);
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
 }
 
-@media (min-width:600px) {
+@media (min-width: 600px) {
   .continueBtn.jsx-1374449561 {
     height: 75px;
   }
@@ -350,7 +354,7 @@
   border: none;
   border-bottom: 2px solid rgba(51, 51, 51, 0.1);
   font-size: 18px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   color: #000;
   -webkit-letter-spacing: 0.012em;
   -moz-letter-spacing: 0.012em;
@@ -368,13 +372,13 @@
 }
 
 .footer.jsx-1374449561 {
-  background-color: #febd00;
+  background-color: #092c57;
   padding: 30px 15px 45px;
 }
 
-@media (min-width:600px) {
+@media (min-width: 600px) {
   .footer.jsx-1374449561 {
-    background-color: #febd00;
+    background-color: #092c57;
     padding: 30px 30px 45px;
   }
 }
@@ -386,7 +390,7 @@
 
 .footer.jsx-1374449561 #siteName.jsx-1374449561 h1.jsx-1374449561 {
   color: #fff;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
 /* SECONDARY LOAD */
@@ -480,11 +484,11 @@ body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  font-family: 'Karla', 'Poppins';
+  font-family: "Poppins";
   font-size: 18px;
   font-weight: 400;
   color: #777;
-  border-top: 12px solid #e14f3d;
+  border-top: 12px solid #092c57;
 }
 
 a,
@@ -493,4 +497,38 @@ p {
   -moz-letter-spacing: 0.08em;
   -ms-letter-spacing: 0.08em;
   letter-spacing: 0.08em;
+}
+
+/* EVC title logo */
+.evc-title-logo {
+  width: 42px;
+  height: 42px;
+}
+
+/* Embedded Step Content */
+.stepContent-embeds {
+  margin-top: 32px;
+}
+.stepContent-embeds.voterInfoProject {
+  margin-top: 0;
+}
+
+.stepTitle-noButton h3 {
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.stepTitle-noButton a {
+}
+
+.ptv-link {
+  text-decoration: none;
+  color: #ea2a2e;
+  border-bottom: 1px dotted #ea2a2e;
+}
+
+/*** VOTER INFO PROJECT ***/
+#_vit {
+  width: 100% !important;
 }

@@ -9,35 +9,48 @@
 
 // Create the global data struct
 var globalData = {
+  // The current step the user is on
   stepNum: 1,
+  // If the user is 18+ or not
   ofAge: -1,
+  // User contact information
   contact: {
     fname: "",
     lname: "",
-    dob: -1,
+    dob: -1
   },
+  // If they are registered to vote
   voterRegStatus: -1,
+  // If they shared the pledge
   sharedPledge: -1,
-  clickedBallotInfo: -1,
+  // If they clicked the ballot info
+  clickedBallotInfo: -1
 };
 
+// *************************************************
 // Wait till document is ready, trigger jquery funct.
-$(function () {
-  // Unhide the current step in the globalData
-  $('.main-step-' + globalData.stepNum).addClass('shown');
+$(function() {
+  // Unhide the current step in the globalData (we init with all hidden)
+  $(".main-step-" + globalData.stepNum).addClass("shown");
 
-  // Check doc. status
+  // Check doc. status + log
   console.log("Document is ready");
 
+  // *****
   // ACTIVATE THE LIST ITEMS
+  // *****
+
   // This will insert data into the globalData and adjust the UI
-  $('.topicListItem').on('click', function (e) {
+  $(".topicListItem").on("click", function(e) {
     e.preventDefault();
+
     // Get the step number of this item
-    var stepNum = parseInt($(this).data('step'));
+    var stepNum = parseInt($(this).data("step"));
+
     // Get the toggleVal
-    var toggleItem = $(this).data('toggle-item'),
-      toggleVal = $(this).data('toggle');
+    var toggleItem = $(this).data("toggle-item"),
+      toggleVal = $(this).data("toggle");
+
     // We only ADD to the globalData if this is a positive entry...
 
     // There are now 3 possibilities:
@@ -55,11 +68,11 @@ $(function () {
       // Set option value
       globalData[toggleItem] = toggleVal;
       // Remove active class on ALL items
-      $('.topicListItem').removeClass('active');
+      $(".topicListItem").removeClass("active");
       // Give item active class
-      $(this).addClass('active');
+      $(this).addClass("active");
       // Make the button active
-      $('button.step-' + stepNum).addClass('active');
+      $("button.step-" + stepNum).addClass("active");
     }
 
     // 2. User has already picked an option, THIS one...
@@ -71,9 +84,9 @@ $(function () {
       // Reset option value
       globalData[toggleItem] = -1;
       // Remove active class on ALL items
-      $('.topicListItem').removeClass('active');
+      $(".topicListItem").removeClass("active");
       // Reset the button status to inactive
-      $('button.step-' + stepNum).removeClass('active');
+      $("button.step-" + stepNum).removeClass("active");
     }
 
     // 3. User has already picked an option, NOT THIS one...
@@ -86,14 +99,14 @@ $(function () {
       // Reset option value
       globalData[toggleItem] = toggleVal;
       // Remove active class on ALL items
-      $('.topicListItem').removeClass('active');
+      $(".topicListItem").removeClass("active");
       // Add active class to THIS item
-      $(this).addClass('active');
+      $(this).addClass("active");
       // Reset the button status to inactive
-      $('button.step-' + stepNum).addClass('active');
+      $("button.step-" + stepNum).addClass("active");
     }
 
-    // 4. Something is wrong. The step data doesn't check out BUt there is currently data in the globalData
+    // 4. Something is wrong. The step data doesn't check out BUT there is currently data in the globalData
     // ... reset the globalData
     // ... remove all active classes from items & buttons
     else {
@@ -101,17 +114,20 @@ $(function () {
       // Reset option value
       globalData[toggleItem] = -1;
       // Remove active class on ALL items
-      $('.topicListItem').removeClass('active');
+      $(".topicListItem").removeClass("active");
       // Reset the button status to inactive
-      $('button.step-' + stepNum).removeClass('active');
+      $("button.step-" + stepNum).removeClass("active");
     }
 
     console.log(globalData);
   });
 
+  // *****
   // MAKE BUTTONS CLICKABLE
+  // *****
+
   // Adjusts the stepNum and switches the UI to the new step
-  $('.stepButton').on('click', function (e) {
+  $(".stepButton").on("click", function(e) {
     // Get the button from the span
     // The span wraps the whole button and for some weird reason
     // clicks aren't propogating through...
@@ -119,17 +135,36 @@ $(function () {
     console.log("Button clicked, ", that);
 
     // Get the step to go to
-    var curStep = parseInt($(that).data('cur-step')),
-      goToStep = parseInt($(that).data('next-step'));
+    var curStep = parseInt($(that).data("cur-step")),
+      goToStep = parseInt($(that).data("next-step"));
+
     // Validate the data
     if (checkStepData(curStep)) {
       // Change the globalData to reflect this
-      $('.step').removeClass('shown')
+      $(".step").removeClass("shown");
       // Hide this step and unhide that one
-      $('.main-step-' + goToStep).addClass('shown');
+      $(".main-step-" + goToStep).addClass("shown");
     } else {
       alert("Please check your selection and try again!");
     }
+  });
+
+  // *****
+  // REDIRECT TO EXTERNAL SITES
+  // *****
+  // Turbovote section (Step 2)
+  $(".topicListItem.turbovote").on("click", function(e) {
+    e.preventDefault();
+    // open new window to TurboVote
+    window.open("https://turbovote.org/index.html", "_blank");
+  });
+
+  // Sharing section (Step 3)
+  $(".topicListItem.sharing").on("click", function(e) {
+    e.preventDefault();
+    // open new window with sharer
+    let shareLink = $(this).data("sharing");
+    window.open(shareLink, "_blank");
   });
 });
 
@@ -145,6 +180,14 @@ function checkStepData(stepNum) {
   if (stepNum === 2) {
     var curVal = globalData["voterRegStatus"];
     if (curVal === "yes" || curVal === "maybe" || curVal === "no") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  if (stepNum === 3) {
+    var curVal = globalData["sharedPledge"];
+    if (curVal === "facebook" || curVal === "twitter" || curVal === "email") {
       return true;
     } else {
       return false;
